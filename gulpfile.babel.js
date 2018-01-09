@@ -3,12 +3,12 @@
 import gulp     from 'gulp';
 import webpack  from 'webpack';
 import path     from 'path';
-import sync     from 'run-sequence';
+//import sync     from 'run-sequence';
 import rename   from 'gulp-rename';
 import template from 'gulp-template';
-import fs       from 'fs';
+//import fs       from 'fs';
 import yargs    from 'yargs';
-import lodash   from 'lodash';
+//import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
@@ -17,7 +17,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
-let root = 'client';
+let root = 'src';
 
 // helper method for resolving paths
 let resolveToApp = (glob = '') => {

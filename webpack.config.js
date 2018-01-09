@@ -7,10 +7,10 @@ module.exports = {
   entry: {},
   module: {
     loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-       { test: /\.html$/, loader: 'raw' },
-       { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
-       { test: /\.css$/, loader: 'style!css' }
+       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate-loader!babel-loader' },
+       { test: /\.html$/, loader: 'raw-loader' },
+       { test: /\.(scss|sass)$/, loader: 'style-loader!css-loader!sass-loader' },
+       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
   plugins: [
@@ -18,7 +18,7 @@ module.exports = {
     // It also adds hash to all injected assets so we don't have problems
     // with cache purging during deployment.
     new HtmlWebpackPlugin({
-      template: 'client/index.html',
+      template: 'src/index.html',
       inject: 'body',
       hash: true
     }),
@@ -28,7 +28,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
-        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
+        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
       }
     })
   ]
